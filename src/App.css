@@ -36,10 +36,10 @@ nav {
 }
 
 .cuadrado {
-  aspect-ratio: 1; /* Mantiene la forma cuadrada */
-  overflow: hidden; /* Para contener el efecto scale */
+  aspect-ratio: 1;
+  overflow: hidden;
   position: relative;
-  width: 100%; /* O el tamaño específico que necesites */
+  width: 100%;
 }
 
 .cuadrado picture {
