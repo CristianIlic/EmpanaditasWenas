@@ -19,7 +19,7 @@ function Recipes() {
               className="cuadrado"
               to={`/recetas/${empanada.id}`}
             >
-              <NetlifyImage src="uwu1.jpg" />
+              {<NetlifyImage src="uwu1.jpg" />}
             </Link>
           );
         })}
