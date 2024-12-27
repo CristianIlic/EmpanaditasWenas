@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router";
 import "../../App.css";
 import { useEmpanadas } from "../../context/EmpanadaContext";
+import NetlifyImage from "../NetlifyImage";
 
 function Recipes() {
   const empanadas = useEmpanadas();
@@ -18,7 +19,7 @@ function Recipes() {
               className="cuadrado"
               to={`/recetas/${empanada.id}`}
             >
-              {empanada.nombre}
+              <NetlifyImage src="uwu1.jpg" />
             </Link>
           );
         })}
