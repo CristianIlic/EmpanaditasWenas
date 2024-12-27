@@ -10,7 +10,7 @@ function App() {
       <div className="banner">
         <h2>Empanaditas</h2>
         <h1>Wenas</h1>
-        <img src="/empanada-banner.png" />
+        <img src="/images/empanada-banner.png" />
       </div>
       <Recipes empanadas={empanadas} />
     </div>

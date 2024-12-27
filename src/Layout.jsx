@@ -5,7 +5,7 @@ export default function Layout() {
     <div className="layout">
       <nav className="navbar">
         <Link className="navbar-logo" to={"/"}>
-          <img className="logo" src="/logo.png" />
+          <img className="logo" src="/images/logo.png" />
         </Link>
         <ul>
           <Link to={"/recetas"}>
