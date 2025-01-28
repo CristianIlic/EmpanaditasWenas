@@ -1,14 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  background-image: url(/public/images/wallpaper.jpg);
-  background-size: cover;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   --primary: #bc6c25;
   --secondary: #dda15e;
   --cream: #fefae0;
@@ -16,12 +6,63 @@
   --darkgreen: #283618;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Lato, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url(/images/wallpaper.jpg);
+  background-size: cover;
+}
+
+.scrollToTop {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: rgb(253, 152, 0);
+  width: 50px;
+  height: 50px;
+  right: 30px;
+  bottom: 30px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.scrollToTop:hover {
+  cursor: pointer;
+  background-color: rgb(161, 97, 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
 .layout {
-  background: linear-gradient(rgba(188, 108, 37, 0.8), rgba(188, 108, 37, 0.8)),
-    url("/public/texture.png");
-  background-size: contain;
   height: 30vw;
   min-height: 500px;
+  /* background-color: red; */
 }
 
 .layout h1 {
@@ -56,12 +97,50 @@ h3 {
   line-height: 1.1;
 }
 
-ul li {
-  color: var(--darkgreen);
+.navbar ul li {
+  color: white;
+  text-shadow: 1px 1px 4px black;
   text-decoration: none;
   list-style-type: none;
   display: inline-block;
   padding: 1rem;
+}
+
+.recipe {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  gap: 4em;
+}
+
+#empanada-info {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.recipe h3 {
+  border-bottom: 3px solid black;
+  width: fit-content;
+}
+
+.recipeInfo {
+  text-align: start;
+  width: 100%;
+  padding: 80px;
+  background-image: url("/images/blank-note.png");
+  background-size: cover;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
+    drop-shadow(0 6px 20px rgba(0, 0, 0, 0.19));
+}
+
+.recipeInfo ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  line-height: 2.5;
 }
 
 button {
@@ -93,5 +172,12 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .recipe {
+    flex-wrap: wrap;
+    gap: 2em;
   }
 }
