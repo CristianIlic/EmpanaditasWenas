@@ -4,11 +4,12 @@
 }
 
 body {
-  margin-top: 180px;
+  margin: 0px;
+  padding-top: 180px;
   background-image: url(/images/wallpaper.jpg);
   background-size: cover;
   background-repeat: repeat;
-  background-position: inherit;
+  background-position: right;
 }
 
 nav {
