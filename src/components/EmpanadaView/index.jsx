@@ -45,13 +45,13 @@ function EmpanadaView() {
     );
   };
 
-  if (!empanada) {
-    return <div>Empanada no encontrada</div>;
-  }
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (!empanada) {
+    return <div>Empanada no encontrada</div>;
+  }
 
   return (
     <>
