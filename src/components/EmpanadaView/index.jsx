@@ -12,6 +12,39 @@ function EmpanadaView() {
       empanada.empanada_id === parseInt(id) || empanada.empanada_id === id
   );
 
+  const rellenoEmpanada = empanada?.ingredients?.filter(
+    (ingredient) => ingredient.for === "relleno"
+  );
+
+  const masaEmpanada = empanada?.ingredients?.filter(
+    (ingredient) => ingredient.for === "masa"
+  );
+
+  const renderIngredients = (ingredientList) => {
+    return (
+      <ul>
+        {ingredientList.map((ingredient) => {
+          const quantity = ingredient.quantity ?? "";
+          const unit = ingredient.unit ?? "";
+          const ingredient_name = ingredient.ingredient_name ?? "";
+          const notes = ingredient.notes ?? "";
+
+          const ingredientDetails = `${quantity} ${
+            unit ? `${unit} de ` : ""
+          }${ingredient_name}`;
+          const notesText = notes ? ` (${notes})` : "";
+
+          return (
+            <li key={ingredient_name}>
+              {ingredientDetails}
+              {notesText}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
   if (!empanada) {
     return <div>Empanada no encontrada</div>;
   }
@@ -31,22 +64,17 @@ function EmpanadaView() {
       <div className="container recipe">
         <div className="recipeInfo">
           <h3>INGREDIENTES:</h3>
-          <ul>
-            {empanada?.ingredients?.map((ingredient) => {
-              const { quantity, unit, ingredient_name, notes } = ingredient;
-              const ingredientDetails = `${quantity} ${
-                unit ? `${unit} de ` : ""
-              }${ingredient_name}`;
-              const notesText = notes ? ` (${notes})` : "";
 
-              return (
-                <li key={ingredient_name}>
-                  {ingredientDetails}
-                  {notesText}
-                </li>
-              );
-            })}
-          </ul>
+          {rellenoEmpanada.length > 0 && masaEmpanada.length > 0 ? (
+            <>
+              <h4>Para el relleno:</h4>
+              {renderIngredients(rellenoEmpanada)}
+              <h4>Para la masa:</h4>
+              {renderIngredients(masaEmpanada)}
+            </>
+          ) : (
+            renderIngredients(empanada.ingredients)
+          )}
         </div>
         <div className="recipeInfo">
           <h3>PREPARACIÓN:</h3>
@@ -54,7 +82,7 @@ function EmpanadaView() {
             .sort((a, b) => a.step_number - b.step_number)
             .map((step, index) => (
               <p key={index}>
-                {step.step_number}. {step.description}
+                <strong>{step.step_number}.</strong> {step.description}
               </p>
             ))}
         </div>
