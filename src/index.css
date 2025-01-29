@@ -12,8 +12,7 @@ html {
 
 body {
   font-family: Lato, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: 1.75;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,6 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url(/images/wallpaper.jpg);
   background-size: cover;
+  background-repeat: repeat;
 }
 
 .scrollToTop {
@@ -106,13 +106,6 @@ h3 {
   padding: 1rem;
 }
 
-.recipe {
-  display: flex;
-  direction: row;
-  justify-content: space-between;
-  gap: 4em;
-}
-
 #empanada-info {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
@@ -121,6 +114,11 @@ h3 {
   -webkit-backdrop-filter: blur(1px);
 }
 
+.recipe {
+  display: flex;
+  justify-content: space-between;
+  gap: 4em;
+}
 .recipe h3 {
   border-bottom: 3px solid black;
   width: fit-content;
@@ -129,11 +127,12 @@ h3 {
 .recipeInfo {
   text-align: start;
   width: 100%;
-  padding: 80px;
+  padding: 60px;
   background-image: url("/images/blank-note.png");
+  background-position: center;
   background-size: cover;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
-    drop-shadow(0 6px 20px rgba(0, 0, 0, 0.19));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+    drop-shadow(0 6px 20px rgba(0, 0, 0, 0.29));
 }
 
 .recipeInfo ul {
@@ -176,8 +175,28 @@ button:focus-visible {
 }
 
 @media screen and (max-width: 1200px) {
+  .recipeInfo {
+    padding: 80px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .recipe {
     flex-wrap: wrap;
-    gap: 2em;
+  }
+
+  .recipeInfo {
+    padding: 20px;
+    padding-top: 80px;
+    font-size: 12px;
+  }
+
+  .recipeInfo h3 {
+    font-size: 30px;
+  }
+
+  .recipeInfo h4 {
+    font-size: 18px;
   }
 }
