@@ -7,9 +7,20 @@ export function EmpanadaProvider({ children }) {
 
   useEffect(() => {
     async function GetAllEmpanadas() {
-      const response = await fetch("http://localhost:3000/");
-      const data = await response.json();
-      setEmpanadas(data);
+      try {
+        const response = await fetch(import.meta.env.VITE_API_URL);
+        if (!response.ok) throw new Error("Fallo en conexión a API hosteada");
+        const data = await response.json();
+        setEmpanadas(data);
+      } catch (error) {
+        try {
+          const localResponse = await fetch(import.meta.env.VITE_API_LOCAL);
+          const localData = await localResponse.json();
+          setEmpanadas(localData);
+        } catch (localError) {
+          console.error("Fallo en conexion a API en ambos métodos", localError);
+        }
+      }
     }
     GetAllEmpanadas();
   }, []);
@@ -21,7 +32,6 @@ export function EmpanadaProvider({ children }) {
   );
 }
 
-// Hook personalizado para usar el contexto
 export function useEmpanadas() {
   return useContext(EmpanadaContext);
 }
