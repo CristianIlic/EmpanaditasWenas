@@ -7,6 +7,7 @@ import Recipes from "./components/Recipes/index.jsx";
 import { EmpanadaProvider } from "./context/EmpanadaContext.jsx";
 import Layout from "./Layout.jsx";
 import App from "./App.jsx";
+import DatosView from "./components/DatosView/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<App />} />
             <Route path="recetas" element={<Recipes />} />
             <Route path="recetas/:id" element={<EmpanadaView />} />
+            <Route path="datazos" element={<DatosView />} />
           </Route>
         </Routes>
       </BrowserRouter>
