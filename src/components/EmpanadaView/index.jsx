@@ -20,8 +20,6 @@ function EmpanadaView() {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log("empanada", empanada);
-
   return (
     <>
       <div className="container" id="empanada-info">
