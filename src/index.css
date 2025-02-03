@@ -101,11 +101,19 @@ h3 {
 }
 
 #empanada-info {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
+  align-items: center;
+}
+
+#empanada-info h3 {
+  margin: 0.5em;
 }
 
 .recipe {
@@ -116,6 +124,24 @@ h3 {
 .recipe h3 {
   border-bottom: 3px solid black;
   width: fit-content;
+}
+
+.recipe-details {
+  display: flex;
+  max-width: 700px;
+  flex-direction: column;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 8px;
+  gap: 3em;
+  padding: 10px;
+  line-height: 0px;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 
 .recipeInfo {

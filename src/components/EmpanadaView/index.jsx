@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useEmpanadas } from "../../context/EmpanadaContext";
 import CdnImage from "../CdnImage";
+import { ChartPie, Clock, Gauge } from "lucide-react";
 
 function EmpanadaView() {
   const empanadas = useEmpanadas();
@@ -50,15 +51,35 @@ function EmpanadaView() {
   }, []);
 
   if (!empanada) {
-    return <div>Empanada no encontrada</div>;
+    return <div>Cargando...</div>;
   }
 
   return (
     <>
       <div className="container" id="empanada-info">
         <CdnImage photoName={empanada.photoName} autoSize border />
-        <h3>{empanada.empanada_name}</h3>
-        <p>{empanada.empanada_description}</p>
+        <div className="recipe-details">
+          <div className="detail-container">
+            <div className="detail">
+              <Clock stroke="#dda15e" />
+              <p>Tiempo</p>
+              <h4>{empanada.preparation_time}</h4>
+            </div>
+            <div className="detail">
+              <Gauge stroke="#dda15e" />
+              <p>Dificultad</p>
+              <h4>{empanada.difficulty}</h4>
+            </div>
+            <div className="detail">
+              <ChartPie stroke="#dda15e" />
+              <p>Porciones</p>
+              <h4>{empanada.servings}</h4>
+            </div>
+          </div>
+
+          <h3>{empanada.empanada_name}</h3>
+          <p>{empanada.empanada_description}</p>
+        </div>
       </div>
 
       <div className="container recipe">
